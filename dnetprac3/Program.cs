@@ -12,7 +12,13 @@ namespace dnetprac3
     {
         static void Main(string[] args) {
              String path = @"d:\randomtext.txt";
-            foreach (String i in GetWords(path, s => s.StartsWith("b"))) {
+            foreach (String i in GetWords(path, s => s.StartsWith("a"))) {
+                Console.Write("{0}; ", i);
+            }
+            Array wordlist = GetWords(path, s => s.StartsWith("a")).ToArray() ;
+            Array.Sort(wordlist, StringComparer.InvariantCulture);
+            Console.WriteLine("\n \n Gesorteerd \n");
+            foreach (String i in wordlist) {
                 Console.Write("{0}; ", i);
             }
             Console.ReadLine();
@@ -22,7 +28,7 @@ namespace dnetprac3
                 string input = File.ReadAllText(path);
                 input = Regex.Replace(input, "[@,\\.\";'\\\\]", string.Empty);
                 string[] wordList = input.Split();
-                Array.Sort(wordList, StringComparer.InvariantCulture);
+               
                 foreach (string i in wordList) {
                     if (LambdaExpression(i)) { yield return i; }
                 }
