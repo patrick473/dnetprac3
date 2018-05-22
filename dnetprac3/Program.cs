@@ -12,7 +12,7 @@ namespace dnetprac3
     {
         static void Main(string[] args) {
              String path = @"d:\randomtext.txt";
-            foreach (String i in GetWords(path, s => s.StartsWith("a"))) {
+            foreach (String i in GetWords(path, s => s.StartsWith("b"))) {
                 Console.Write("{0}; ", i);
             }
             Console.ReadLine();
