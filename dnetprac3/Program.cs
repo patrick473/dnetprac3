@@ -15,8 +15,10 @@ namespace dnetprac3
             foreach (String i in GetWords(path, s => s.StartsWith("a"))) {
                 Console.Write("{0}; ", i);
             }
-            Array wordlist = GetWords(path, s => s.StartsWith("a")).ToArray() ;
-            Array.Sort(wordlist, StringComparer.InvariantCulture);
+            String[] wordlist = GetWords(path, s => s.StartsWith("a")).ToArray() ;
+            Array.Sort(wordlist, (x, y) => x.Length.CompareTo(y.Length));
+            //(x, y) => x.Length.CompareTo(y.Length)
+            //StringComparer.InvariantCulture
             Console.WriteLine("\n \n Gesorteerd \n");
             foreach (String i in wordlist) {
                 Console.Write("{0}; ", i);
